@@ -1,6 +1,3 @@
-
-RawBlame
-   
 #include <stdio.h>
 #include <string.h>
 
