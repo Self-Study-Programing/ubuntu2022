@@ -30,4 +30,4 @@ int main(){
         getchar();
         scanf("%c", &c);
     }while(c == 'Y');
-}
+} 
