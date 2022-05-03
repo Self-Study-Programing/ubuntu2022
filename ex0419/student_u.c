@@ -13,7 +13,7 @@ typedef struct
 
 int main(){
     int fd, fd1;
-    fd = open("studentdb", O_RDWR);
+    fd = creat("studentdb", O_RDWR);
     
     if(fd == -1){
         printf("file open fail");
