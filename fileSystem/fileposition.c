@@ -5,19 +5,19 @@
 typedef char* String;
 
 void fileposition(String file){
-    String ptr = (String)malloc(sizeof(char)*(4+strlen(file)));
+    // String ptr = (String)malloc(sizeof(char)*(4+strlen(file)));
+    // printf("%s\n", file);
 
-    strcpy(ptr, "src/");
- 
-    char *ptr2 = strtok(file, "/");    //구분자는 콤마(,)입니다.
- 
-    while (ptr2 != NULL)
-    {
-        strcpy(ptr[strlen(ptr)], ptr2);     //자른 문자 출력
-        ptr2 = strtok(NULL, "/");
-    }
+    chdir("src/"); 
 
-    chdir(ptr); 
+ 
+    // while (ptr2 != NULL)
+    // {
+        
+    //     chdir(ptr2);     //자른 문자 출력
+    //     ptr2 = strtok(NULL, "/");
+    // }
+
 
     // strcpy(file, ptr);
 

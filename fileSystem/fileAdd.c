@@ -19,19 +19,39 @@ int fileAdd(){
     }
 
     String file = (String)malloc(sizeof(char)*(4+strlen(filename)));
+    // printf("%s\n", file);
+    fileposition(filename);
+    
     strcpy(file, filename);
-    fileposition(file);
 
     int newfile;
-    newfile = creat(file, O_RDWR);
+    newfile = creat(file, 0600);
 
     if(newfile == -1){
-        printf("file open fail");
+        printf("file open fail: %d", -1);
     }
 
-    printf("file create success");
-    printf("filename = %s", file);
+    close(newfile);
 
+    newfile = open(file, O_RDWR, 0600);
+
+    printf("내용을 입력해주세요: \n");
+    
+    while(1){
+        char input[1000] = {0,};
+        scanf("%[^\n]", input);
+        getchar();
+        if(input[0] == ':' && input[1] == 'w' && input[2] == 'q'){
+            break;
+        }
+        write(newfile, input, strlen(input));
+        write(newfile, "\n", 2);
+    }
+
+    printf("success: filename = %s", file);
+
+    
+    close(newfile);
     free(file);
     return 0;
 }

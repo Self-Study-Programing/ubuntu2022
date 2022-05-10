@@ -3,7 +3,11 @@
 #include<string.h>
 #include"fileAdd.c"
 
+typedef char* String;
+
 int main(){
-    fileAdd();
+    String filename = "sdf";
+    fileAdd();  
+    fileRead(filename);
     return 0;
 }
