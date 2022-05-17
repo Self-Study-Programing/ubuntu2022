@@ -4,13 +4,15 @@
 #include"fileAdd.c"
 #include"fileRead.c"
 #include"removeFile.c"
+#include"modify.c"
 
 typedef char* String;
 
 int main(){
-    String filename = "sdf";
     fileAdd();  
-    removeFile();
-    fileRead(filename);
+    // removeFile();
+    fileRead();
+    modify();
+    fileRead();
     return 0;
 }

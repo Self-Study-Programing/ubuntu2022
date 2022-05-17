@@ -3,4 +3,4 @@
 typedef char* String;
 
 int fileAdd();
-int fileRead(String f);
+int fileRead();
