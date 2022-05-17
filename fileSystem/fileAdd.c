@@ -5,6 +5,7 @@
 #include<fcntl.h>
 #include "fileMethod.h"
 #include "fileposition.h"
+
 typedef char* String;
 
 int fileAdd(){
@@ -25,7 +26,11 @@ int fileAdd(){
     strcpy(file, filename);
 
     int newfile;
-    newfile = creat(file, 0600);
+    char authority[4] = {0,};
+    printf("권한을 입력해주세요: ");
+    scanf("%s", authority);
+
+    newfile = creat(file, strtol(authority, (char**)NULL, 8));
 
     if(newfile == -1){
         printf("file open fail: %d", -1);
@@ -33,7 +38,7 @@ int fileAdd(){
 
     close(newfile);
 
-    newfile = open(file, O_RDWR, 0600);
+    newfile = open(file, O_RDWR, authority);
 
     printf("내용을 입력해주세요: \n");
     
@@ -48,7 +53,7 @@ int fileAdd(){
         write(newfile, "\n", 2);
     }
 
-    printf("success: filename = %s", file);
+    printf("success: filename = %s\n", file);
 
     
     close(newfile);
