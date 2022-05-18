@@ -11,14 +11,17 @@ void modify(){
     int fd;
 
     printf("덮어 쓰시겠습니까 ? (Y/N) ");
+    getchar();
+    char A = getchar();
 
-    fd = open(filename, O_WRONLY);
-
-    if(getchar() == 'Y'){
-    }else if(getchar() == 'N'){
+    if(A == 'Y'){
+        fd = open(filename, O_WRONLY | O_TRUNC);
+    }else if(A == 'N'){
+        fd = open(filename, O_WRONLY | O_APPEND);
         lseek(fd, -2, SEEK_END);
     }
     printf("입력해주세요: \n");
+    getchar();
     while(1){
         char input[1000] = {0,};
         scanf("%[^\n]", input);
