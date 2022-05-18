@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "fileposition.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stat.h": "c"
     }
 }
