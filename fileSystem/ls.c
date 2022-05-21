@@ -22,8 +22,8 @@ char type(mode_t mode)
 char *perm(mode_t mode)
 {
     static char mystring[10] = "---------";
-    printf("mode = %o\n", mode);
-    printf("S_IREAD = %o\n", S_IREAD);
+    // printf("mode = %o\n", mode);
+    // printf("S_IREAD = %o\n", S_IREAD);
 
     strcpy(mystring, "---------");
 
@@ -86,21 +86,9 @@ void printstat(char *pathname, char *file, struct stat *st)
     printf(" %.12s", ctime(&st->st_mtime));
     printf(" %s\n", file);
 }
-/*
-void setaa(struct aa *pa)
-{
-    printf("setaa pa = %d\n", pa);
-    strcpy((*pa).name, "안녕하세요 이름입니다");
-}
-void printaa(struct aa *pa)
-{
-    printf("printaa pa = %d\n", pa);
-    printf("pa->name = %s\n", pa->name);
-}
-*/
+
 int ls()
 {
-
     char dirname[255] = {0,};
     printf("디렉토리의 이름을 입력하세요: ");
     scanf("%s", dirname);
@@ -116,7 +104,7 @@ int ls()
     char directoryname[512];
     strcpy(directoryname, dirname);
 
-    printf("directoryname =  %s\n", directoryname);
+    // printf("directoryname =  %s\n", directoryname);
 
     dp = opendir(directoryname);
     if (dp == NULL)
@@ -130,11 +118,6 @@ int ls()
         if (lstat(path, &st) < 0)
             perror(path);
         printstat(path, d->d_name, &st);
-
-        // printf("%5d", st.st_blocks);
-
-        // printf("%s\n", d->d_name);
-        // printf("path = %s", path);
     }
 
     return 0;

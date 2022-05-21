@@ -33,7 +33,8 @@ int fileAdd(){
     newfile = creat(file, strtol(authority, (char**)NULL, 8));
 
     if(newfile == -1){
-        printf("file open fail: %d", -1);
+        printf("file create fail: %d", -1);
+        return 0;
     }
 
     close(newfile);
