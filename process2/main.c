@@ -7,11 +7,11 @@
 #include "terminal.c"
 
 void doA(){
-    printf("doA\n");
+    printf("doA function\n");
 }
 
 void doB(){
-    printf("doB\n");
+    printf("doB function\n");
 }
 
 int main(){
