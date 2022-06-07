@@ -1,11 +1,23 @@
 #include <stdio.h>
 #include <string.h>
-#include "env.c"
-#include "upper.c"
 #include <sys/types.h>
 #include <unistd.h>
+#include "env.c"
+#include "upper.c"
+#include "terminal.c"
+
+void doA(){
+    printf("doA\n");
+}
+
+void doB(){
+    printf("doB\n");
+}
 
 int main(){
+    atexit(doA);
+    atexit(doB);
+
     char operator[100] = {0,};
 
     system("clear");
@@ -13,6 +25,7 @@ int main(){
     while(1){
         *operator = "";
         printf("process ~ %% ");
+
         scanf("%[^\n]", operator);
         getchar();
 
@@ -25,10 +38,11 @@ int main(){
             }
 
             env(ptr);
-        }
-        if(strstr(operator, "ps") != NULL){
-            int a = getppid( );
-            printf("%d\n", a);
+        }else if(strstr(operator, "exit") != NULL){
+            printf("종료\n");
+            exit(0);
+        }else {
+            int status = terminal(operator);
         }
     }
 
