@@ -3,6 +3,8 @@
         "stdio.h": "c",
         "unistd.h": "c",
         "types.h": "c",
-        "pwd.h": "c"
+        "pwd.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
     }
 }
